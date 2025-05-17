@@ -116,5 +116,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-
-
+// Only enable click flip for touch devices (mobile)
+if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+  document.querySelectorAll('.room-card').forEach(card => {
+    card.addEventListener('click', function () {
+      const inner = this.querySelector('.card-inner');
+      inner.classList.toggle('flipped');
+    });
+  });
+}
